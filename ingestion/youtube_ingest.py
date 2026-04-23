@@ -1,3 +1,8 @@
+"""
+YouTube ingestion module for extracting transcripts and converting them
+into chunked documents for semantic retrieval.
+"""
+
 import logging
 import time
 from youtube_transcript_api import YouTubeTranscriptApi
@@ -8,23 +13,29 @@ logger = logging.getLogger(__name__)
 
 
 class YouTubeIngestor:
+    """Handles transcript extraction, chunking, and document creation."""
+
     def __init__(self):
+        """Initialize text splitter for chunking."""
         self.splitter = RecursiveCharacterTextSplitter(
             chunk_size=600,         
             chunk_overlap=130
         )
 
     def extract_video_id(self, url):
+        """Extract YouTube video ID from URL."""
         if "v=" in url:
             return url.split("v=")[1].split("&")[0]
         return None
         
     def extract_video_index(self, url):
+        """Extract playlist index from URL."""
         if "index=" in url:
             return url.split("index=")[1].split("&")[0]
         return "unknown"
 
     def get_transcript(self, video_id):
+        """Fetch transcript using YouTubeTranscript API."""
         try:
             ytt_api = YouTubeTranscriptApi()
             transcript = ytt_api.fetch(video_id=video_id)
@@ -39,6 +50,7 @@ class YouTubeIngestor:
             return []
 
     def build_full_text(self, transcript):
+        """Combine transcript segments into full text with timestamps."""
         full_text = ""
         timestamps = []
 
@@ -48,10 +60,9 @@ class YouTubeIngestor:
 
         return full_text.strip(), timestamps
 
-    # create chunks from full text
     def create_documents(self, full_text, timestamps, video_id, video_index, source_name):
+        """Split text into chunks and attach metadata."""
         docs = []
-
         chunks = self.splitter.split_text(full_text)
 
         for i, chunk in enumerate(chunks):
@@ -73,6 +84,7 @@ class YouTubeIngestor:
         return docs
 
     def ingest(self, video_urls):
+        """Process multiple videos and return all documents."""
         all_docs = []
 
         for url in video_urls:
@@ -84,7 +96,6 @@ class YouTubeIngestor:
                 continue
 
             transcript = self.get_transcript(video_id)
-
             if not transcript:
                 continue
 

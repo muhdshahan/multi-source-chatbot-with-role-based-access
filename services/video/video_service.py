@@ -1,20 +1,29 @@
+"""
+Video search service for querying indexed frame data.
+Parses user queries and filters frames based on objects and attributes.
+"""
+
 import json
 import logging
 
 logger = logging.getLogger(__name__)
 
 class VideoSearchService:
+    """Handles video frame search based on object and color queries."""
+
     def __init__(self, index_path="data/video_index.json"):
+        """Load preprocessed video index from disk."""
         with open(index_path, "r") as f:
             self.data = json.load(f)
 
     def parse_query(self, query):
+        """Extract target objects and color from query."""
         query = query.lower()
 
         target_objects = []
         target_color = None
 
-        # normalize words
+        # Normalize object terms
         if any(x in query for x in ["person", "man", "woman", "lady"]):
             target_objects.append("person")
 
@@ -33,7 +42,6 @@ class VideoSearchService:
         if "handbag" in query:
             target_objects.append("handbag")
 
-        # color
         if "red" in query:
             target_color = "red"
         elif "white" in query:
@@ -44,6 +52,7 @@ class VideoSearchService:
         return target_objects, target_color
 
     def search(self, query, allowed_sources):
+        """Search frames matching query constraints and access control."""
         target_objects, target_color = self.parse_query(query)
 
         results = []
@@ -51,6 +60,7 @@ class VideoSearchService:
         for frame in self.data:
             matched_boxes = []
 
+            # Enforce access control before processing
             if frame.get("source") not in allowed_sources:
                 continue
 

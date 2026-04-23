@@ -1,3 +1,10 @@
+"""
+Script to run video ingestion and generate indexed frame data.
+
+Initializes Django environment, processes video frames,
+performs object detection, and stores results for retrieval.
+"""
+
 import os
 import django
 import sys
@@ -12,6 +19,7 @@ VIDEO_PATH = "data/People-Walking-Free.mp4"
 
 
 def run():
+    """Run video ingestion and store detection results."""
     if not os.path.exists(VIDEO_PATH):
         print(f"Video not found at {VIDEO_PATH}")
         return 

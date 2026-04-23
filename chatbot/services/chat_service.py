@@ -1,3 +1,8 @@
+"""
+Chat service for handling multi-source queries (DB, RAG, Video).
+Handles routing, access control, retrieval, and response generation.
+"""
+
 import logging
 import re
 import os
@@ -15,20 +20,26 @@ logger = logging.getLogger(__name__)
 
 
 class ChatService:
+    """Main service for processing user queries across multiple sources."""
+
     def __init__(self):
+        """Initialize dependent services."""
         self.retriever = RetrieverService()
         self.product_service = ProductService()
         self.router = QueryRouter()
         self.video_service = VideoSearchService()
 
     def log_response(self, request_id, response):
+        """Log response preview for debugging."""
         preview = response[:300]
         logger.info(f"[{request_id}] RESPONSE PREVIEW: {preview}")
 
     def handle_query(self, user, query):
+        """Process query, route to correct module, and return response."""
         request_id = str(uuid.uuid4())[:8]
         start_time = time.time()
 
+        # Enforce role-based access control to prevent data leakage across sources
         allowed_sources = user.get_allowed_sources()
         query_lower = query.lower()
 
@@ -36,7 +47,7 @@ class ChatService:
         logger.info(f"[{request_id}] QUERY: {query}")
         logger.info(f"[{request_id}] ALLOWED SOURCES: {allowed_sources}")
 
-        # MULTIPLE PART NUMBERS
+        # Extract part numbers like D-12345 from query for direct DB lookup
         part_numbers = re.findall(r"[A-Z]-\d{5}", query.upper())
 
         if part_numbers:
@@ -63,7 +74,6 @@ class ChatService:
             self.log_response(request_id, response)
             return response
 
-        # PRICE FILTER 
         price_match = re.search(r"(above|greater than|over|higher than|below|less than).*?(\d+)", query_lower)
 
         if price_match:
@@ -87,7 +97,6 @@ class ChatService:
                 self.log_response(request_id, response)
                 return response
 
-        # MULTI PRODUCT SEARCH
         products = self.product_service.search_multiple_products(query, allowed_sources)
 
         if products:
@@ -106,7 +115,6 @@ class ChatService:
                 logger.error(f"[{request_id}] LLM ERROR (MULTI PRODUCT): {str(e)}")
                 return "Error generating response."
 
-        # SINGLE PRODUCT SEARCH
         product = self.product_service.search_product(query, allowed_sources)
         
         if product:
@@ -128,7 +136,7 @@ class ChatService:
                 logger.error(f"[{request_id}] LLM ERROR (SINGLE PRODUCT): {str(e)}")
                 return "Error generating response."
 
-        # VIDEO SEARCH
+
         query_type = self.router.classify(query)
 
         if query_type == "video":
@@ -146,6 +154,7 @@ class ChatService:
             for r in results:
                 logger.info(f"[{request_id}] Frame {r['frame_id']} @ {r['timestamp']}")
 
+                # Load frame image from stored path 
                 frame = cv2.imread(r["frame_path"])
 
                 for obj in r["matches"]:
@@ -177,7 +186,7 @@ class ChatService:
             self.log_response(request_id, response)
             return response
 
-        # RAG
+        # Retrieval-Augmented Generation (RAG)
         logger.info(f"[{request_id}] RAG TRIGGERED")
 
         docs = self.retriever.retrieve(query, allowed_sources)
@@ -202,7 +211,7 @@ class ChatService:
         try:
             logger.info(f"[{request_id}] Sending RAG context to LLM (length={len(context)})")
             response = generate_response(query, context)
-        except Exception:
+        except Exception as e:
             logger.error(f"[{request_id}] LLM ERROR (RAG): {str(e)}")
             return "Error generating response."
 

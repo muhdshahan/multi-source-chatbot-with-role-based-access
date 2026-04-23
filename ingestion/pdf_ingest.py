@@ -1,3 +1,8 @@
+"""
+PDF ingestion module for extracting structured product data and
+creating RAG-ready documents from catalogue PDFs.
+"""
+
 import pdfplumber
 import logging
 from langchain_core.documents import Document
@@ -9,17 +14,19 @@ logger = logging.getLogger(__name__)
 
 
 class PDFIngestor:
+    """Handles PDF parsing, data extraction, and document creation."""
+
     def __init__(self, file_path: str):
+        """Initialize with path to PDF file."""
         self.file_path = file_path
 
-    # STEP 1: Identify product page
     def is_product_page(self, text: str) -> bool:
+        """Check if page contains product table."""
         return text and ("Part No" in text and "MRP" in text)
 
-    # STEP 2: Extract structured data from TABLES
     def parse_products_from_page(self, page):
+        """Extract structured product data from tables."""
         products = []
-
         tables = page.extract_tables()
 
         if not tables:
@@ -31,7 +38,7 @@ class PDFIngestor:
 
             headers = [str(h).strip() if h else "" for h in table[0]]
 
-            # Validate table
+            # Validate required columns
             if "Part No." not in headers or "MRP" not in headers:
                 continue
 
@@ -42,10 +49,8 @@ class PDFIngestor:
             except ValueError:
                 continue
 
-            # Try to extract category (best-effort)
+            # Extract category using simple heuristic
             category = "Unknown"
-
-            # Heuristic: check text above table
             try:
                 text = page.extract_text()
                 lines = text.split("\n")
@@ -88,8 +93,8 @@ class PDFIngestor:
         logger.info(f"Extracted {len(products)} structured products")
         return products
 
-    # STEP 3: Store in DB
     def store_products(self, products):
+        """Store extracted products in database."""
         objs = []
 
         for p in products:
@@ -106,8 +111,8 @@ class PDFIngestor:
         Product.objects.bulk_create(objs, ignore_conflicts=True)
         logger.info(f"Stored {len(objs)} products in DB")
 
-    # STEP 4: Create RAG documents
     def create_documents(self):
+        """Convert PDF content into RAG-ready documents."""
         all_products = []
         documents = []
 
@@ -141,10 +146,8 @@ class PDFIngestor:
                         )
                     )
 
-        # Store DB
         self.store_products(all_products)
 
-        # Chunk for RAG
         splitter = RecursiveCharacterTextSplitter(
             chunk_size=300,
             chunk_overlap=50

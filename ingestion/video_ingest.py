@@ -1,18 +1,22 @@
+"""
+Video ingestion module for extracting frames, detecting objects,
+and storing metadata for video-based search.
+"""
+
 import cv2
 import os
 import json
 import logging
 from ultralytics import YOLO
-import numpy as np
-import torch
-import clip
-from PIL import Image
 
 logger = logging.getLogger(__name__)
 
 
 class VideoIngestor:
+    """Handles video processing, object detection, and indexing."""
+
     def __init__(self, video_path, output_dir="data/frames"):
+        """Initialize model, and paths."""
         self.video_path = video_path
         self.output_dir = output_dir
 
@@ -20,12 +24,8 @@ class VideoIngestor:
 
         self.model = YOLO("yolov8m.pt")
 
-        # CLIP 
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.clip_model, self.preprocess = clip.load("ViT-B/32", device=self.device)
-
-    # FRAME EXTRACTION
     def extract_frames(self, interval=100):
+        """Extract frames at fixed interval with timestamps."""
         cap = cv2.VideoCapture(self.video_path)
 
         frames = []
@@ -45,30 +45,19 @@ class VideoIngestor:
         cap.release()
         return frames
 
-    # COLOR DETECTION 
     def detect_color(self, crop):
+        """Detect dominant color from cropped object region."""
         if crop is None or crop.size == 0:
             return "unknown"
 
         hsv = cv2.cvtColor(crop, cv2.COLOR_BGR2HSV)
 
         color_ranges = {
-            "red": [
-                ((0, 120, 70), (10, 255, 255)),
-                ((170, 120, 70), (180, 255, 255))
-            ],
-            "white": [
-                ((0, 0, 200), (180, 40, 255))
-            ],
-            "blue": [
-                ((94, 80, 2), (126, 255, 255))
-            ],
-            "green": [
-                ((35, 50, 50), (85, 255, 255))
-            ],
-            "black": [
-                ((0, 0, 0), (180, 255, 50))
-            ]
+            "red": [((0, 120, 70), (10, 255, 255)), ((170, 120, 70), (180, 255, 255))],
+            "white": [((0, 0, 200), (180, 40, 255))],
+            "blue": [((94, 80, 2), (126, 255, 255))],
+            "green": [((35, 50, 50), (85, 255, 255))],
+            "black": [((0, 0, 0), (180, 255, 50))]
         }
 
         detected_color = "unknown"
@@ -89,8 +78,8 @@ class VideoIngestor:
 
         return detected_color
 
-    # OBJECT DETECTION
     def detect_objects(self, frames):
+        """Run YOLO detection and extract object metadata."""
         results = []
 
         for frame, timestamp, frame_id in frames:
@@ -104,14 +93,13 @@ class VideoIngestor:
                 for box in det.boxes:
                     conf = float(box.conf[0])
 
-                    # Filter weak detections
                     if conf < 0.5:
                         continue
 
                     cls_id = int(box.cls[0])
                     label = self.model.names[cls_id]
 
-                    # Avoid duplicate labels per frame (optional but clean)
+                    # Avoid duplicate labels per frame
                     if label in seen_labels:
                         continue
                     seen_labels.add(label)
@@ -119,7 +107,6 @@ class VideoIngestor:
                     # Bounding box
                     x1, y1, x2, y2 = map(int, box.xyxy[0])
 
-                    # Crop for color detection
                     crop = frame[y1:y2, x1:x2]
                     color = self.detect_color(crop)
 
@@ -129,7 +116,7 @@ class VideoIngestor:
                         "bbox": [x1, y1, x2, y2]
                     })
 
-            # Save RAW frame (no annotations here)
+            # Save RAW frame
             frame_path = os.path.join(self.output_dir, f"{frame_id}.jpg")
             cv2.imwrite(frame_path, frame)
 
@@ -144,15 +131,13 @@ class VideoIngestor:
 
         return results
 
-    # MAIN INGEST
     def ingest(self):
+        """Run full pipeline: extract frames, detect objects, store index."""
         frames = self.extract_frames(interval=100)
-
         detections = self.detect_objects(frames)
 
         with open("data/video_index.json", "w") as f:
             json.dump(detections, f, indent=2)
 
         logger.info(f"Stored {len(detections)} detections")
-
         return detections

@@ -31,45 +31,37 @@ This project implements a unified chatbot interface capable of handling queries 
 ## Setup Instructions
 
 ```
-1. Create Virtual Environment
+# 1.Create Virtual Environment
     python -m venv venv
     venv\Scripts\activate      # Windows
 
-2. Install Dependencies
+# 2.Install Dependencies
     pip install -r requirements.txt
 
-3. Configure Environment Variables
+# 3.Configure Environment Variables
     Create a .env file in the root directory: GROQ_API_KEY=your_api_key_here
-```
-## Database Setup
-```
-python manage.py makemigrations
-python manage.py migrate
 
-Create Superuser
-python manage.py createsuperuser
-```
-## Data Ingestion
-```
-Source 1: PDF Catalogue
-python ingestion/run_pdf_ingest.py
+# 4.Apply migrations
+    python manage.py makemigrations
+    python manage.py migrate
 
-Source 2: YouTube Transcripts
-python ingestion/run_youtube_ingest.py
+# 5.Data Ingestion
+    Source 1: PDF Catalogue
+    python ingestion/run_pdf_ingest.py
 
-Source 3: Video Processing
-python ingestion/run_video_ingest.py
-```
-## How to Run Locally
-```
-python manage.py runserver
-Access the application at: http://127.0.0.1:8000/api/ui/
+    Source 2: YouTube Transcripts
+    python ingestion/run_youtube_ingest.py
+
+    Source 3: Video Processing
+    python ingestion/run_video_ingest.py
+
+# 6.Start Server
+    python manage.py runserver
+    Access the application at: http://127.0.0.1:8000/api/ui/
 ```
 ## API Usage
 ```
-Endpoint
-
-POST /api/chat/
+Endpoint: POST /api/chat/
 
 Request
 {
@@ -87,9 +79,9 @@ Each user is assigned a set of allowed sources. Access control is enforced befor
 
 ## Limitations
 
-Object detection accuracy may vary in complex or crowded scenes
-Limited detection of fine-grained attributes (e.g., gender, clothing details)
-YouTube transcripts may contain noise or incomplete context
-PDF parsing depends on consistent table formatting
+- Object detection accuracy may vary in complex or crowded scenes
+- Limited detection of fine-grained attributes (e.g., gender, clothing details)
+- YouTube transcripts may contain noise or incomplete context
+- PDF parsing depends on consistent table formatting
 FAISS is suitable for prototype-scale deployments
 No automated testing or formal evaluation metrics implemented

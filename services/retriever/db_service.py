@@ -1,22 +1,27 @@
-from chatbot.models import Product
+"""
+Service layer for product retrieval and filtering.
+Handles structured queries on product database.
+"""
+
 import re
 import logging
+from chatbot.models import Product
 
 logger = logging.getLogger(__name__)
 
 class ProductService:
+    """Provides methods for querying product data."""
 
     def extract_part_number(self, query):
+        """Extract part number from query if present."""
         match = re.search(r"[A-Z]-\d{5}", query.upper())
         return match.group() if match else None
 
     def search_product(self, query, allowed_sources):
+        """Search product by part number within allowed sources."""
         products = Product.objects.filter(source__in=allowed_sources)
-
         logger.info(f"Searching product for query: {query}")
-        logger.info(f"Allowed sources: {allowed_sources}")
 
-        # Try part number
         part_no = self.extract_part_number(query)
         if part_no:
             product = products.filter(part_no=part_no).first()
@@ -26,6 +31,7 @@ class ProductService:
         return None
     
     def get_by_part_number(self, part_no, allowed_sources):
+        """Retrieve product by exact part number."""
         return Product.objects.filter(
             part_no__iexact=part_no,
             source__in=allowed_sources
@@ -33,6 +39,7 @@ class ProductService:
 
 
     def filter_by_price(self, value, allowed_sources):
+        """Return products with price greater than given value."""
         return Product.objects.filter(
             price__gt=value,
             source__in=allowed_sources
@@ -40,6 +47,7 @@ class ProductService:
 
 
     def filter_below_price(self, value, allowed_sources):
+        """Return products with price less than given value."""
         return Product.objects.filter(
             price__lt=value,
             source__in=allowed_sources
@@ -47,6 +55,7 @@ class ProductService:
 
 
     def search_multiple_products(self, query, allowed_sources):
+        """Find multiple relevant products using keyword overlap."""
         products = Product.objects.filter(source__in=allowed_sources)
 
         query = query.lower()

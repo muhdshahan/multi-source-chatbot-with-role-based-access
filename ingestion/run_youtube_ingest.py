@@ -1,3 +1,10 @@
+"""
+Script to run YouTube ingestion and update vector store.
+
+Initializes Django environment, extracts transcripts from videos,
+converts them into documents, and stores them in the vector database.
+"""
+
 import os
 import sys
 import django
@@ -24,6 +31,7 @@ VIDEO_URLS = [
 
 
 def run():
+    """Run YouTube ingestion and update vector store."""
     ingestor = YouTubeIngestor()
     docs = ingestor.ingest(VIDEO_URLS)
 

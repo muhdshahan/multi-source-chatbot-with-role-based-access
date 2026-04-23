@@ -1,3 +1,10 @@
+"""
+Script to run PDF ingestion and create vector store.
+
+Initializes Django environment, extracts data from PDF,
+stores structured data, and builds FAISS index.
+"""
+
 import os
 import sys
 import django
@@ -15,6 +22,7 @@ from services.rag.vector_store import VectorStoreService
 PDF_PATH = "data/makita_catalogue.pdf"
 
 def run():
+    """Run PDF ingestion and vector store creation."""
     ingestor = PDFIngestor(PDF_PATH)
 
     documents = ingestor.create_documents()
