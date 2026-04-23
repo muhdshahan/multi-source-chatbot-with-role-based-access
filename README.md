@@ -20,16 +20,17 @@ This project implements a unified chatbot interface capable of handling queries 
 
 ## Tech Stack
 
-Backend: Django
-Vector Database: FAISS
-Embeddings: sentence-transformers/all-MiniLM-L6-v2
-LLM: LLaMA-3.1-8B-Instant (via Groq API)
-YouTube Ingestion: youtube_transcript_api
-Video Processing: OpenCV
-Object Detection: YOLOv8m (yolov8m.pt)
+- Backend: Django
+- Vector Database: FAISS
+- Embeddings: sentence-transformers/all-MiniLM-L6-v2
+- LLM: LLaMA-3.1-8B-Instant (via Groq API)
+- YouTube Ingestion: youtube_transcript_api
+- Video Processing: OpenCV
+- Object Detection: YOLOv8m (yolov8m.pt)
 
 ## Setup Instructions
 
+```
 1. Create Virtual Environment
     python -m venv venv
     venv\Scripts\activate      # Windows
@@ -39,17 +40,17 @@ Object Detection: YOLOv8m (yolov8m.pt)
 
 3. Configure Environment Variables
     Create a .env file in the root directory: GROQ_API_KEY=your_api_key_here
-
+```
 ## Database Setup
-
+```
 python manage.py makemigrations
 python manage.py migrate
 
 Create Superuser
 python manage.py createsuperuser
-
+```
 ## Data Ingestion
-
+```
 Source 1: PDF Catalogue
 python ingestion/run_pdf_ingest.py
 
@@ -58,14 +59,14 @@ python ingestion/run_youtube_ingest.py
 
 Source 3: Video Processing
 python ingestion/run_video_ingest.py
-
+```
 ## How to Run Locally
-
+```
 python manage.py runserver
 Access the application at: http://127.0.0.1:8000/api/ui/
-
+```
 ## API Usage
-
+```
 Endpoint
 
 POST /api/chat/
@@ -78,6 +79,7 @@ Response
 {
   "response": "Generated answer based on retrieved context"
 }
+```
 
 ## Access Control
 
