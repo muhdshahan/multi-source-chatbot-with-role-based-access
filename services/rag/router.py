@@ -12,4 +12,13 @@ class QueryRouter:
         if "list" in query or "under" in query:
             return "filter"
         
+        video_keywords = [
+            "person", "car", "bag", "backpack", "handbag",
+            "traffic", "light", "signal", "find", "video", "frame"
+        ]
+
+        for word in video_keywords:
+            if word in query:
+                return "video"
+        
         return "rag"

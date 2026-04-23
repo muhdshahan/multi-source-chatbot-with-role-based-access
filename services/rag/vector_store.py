@@ -22,4 +22,17 @@ class VectorStoreService:
 
     def load_vector_store(self):
         logger.info("Loading FAISS vector store...")
-        return FAISS.load_local(self.persist_path, self.embedding_model)
+        return FAISS.load_local(
+            self.persist_path,
+            self.embedding_model,
+            allow_dangerous_deserialization=True
+        )
+    
+    def add_documents(self, documents):
+        try:
+            db = self.load_vector_store()
+            db.add_documents(documents)
+            db.save_local(self.persist_path)
+        except:
+            db = FAISS.from_documents(documents, self.embedding_model)
+            db.save_local(self.persist_path)

@@ -17,21 +17,12 @@ PDF_PATH = "data/makita_catalogue.pdf"
 def run():
     ingestor = PDFIngestor(PDF_PATH)
 
-    # Step 1: Create documents + tables
-    documents, tables_data = ingestor.create_documents()
+    documents = ingestor.create_documents()
 
-    # Step 2: Store structured data in DB
-    products = ingestor.normalize_products(tables_data)
-    ingestor.store_products(products)
+    vector_service = VectorStoreService()
+    vector_service.create_vector_store(documents)
 
-    # Step 3: Chunk for RAG
-    chunks = ingestor.chunk_documents(documents)
-
-    # Step 4: Store in FAISS
-    vector_store = VectorStoreService()
-    vector_store.create_vector_store(chunks)
-
-    print("Ingestion completed successfully.")
+    print("Ingestion completed successfully")
 
 
 if __name__ == "__main__":

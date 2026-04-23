@@ -1,0 +1,16 @@
+django
+djangorestframework 
+python-dotenv
+groq 
+langchain 
+langchain-community 
+langchain-core 
+faiss-cpu 
+pdfplumber 
+youtube-transcript-api 
+opencv-python 
+ultralytics 
+sentence-transformers 
+langchain-huggingface 
+mysqlclient
+opencv-python-headless

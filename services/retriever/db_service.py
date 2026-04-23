@@ -1,21 +1,68 @@
 from chatbot.models import Product
+import re
 import logging
 
 logger = logging.getLogger(__name__)
 
 class ProductService:
 
-    def get_price(self, query, allowed_sources):
+    def extract_part_number(self, query):
+        match = re.search(r"[A-Z]-\d{5}", query.upper())
+        return match.group() if match else None
+
+    def search_product(self, query, allowed_sources):
         products = Product.objects.filter(source__in=allowed_sources)
 
-        for p in products:
-            if p.part_no and p.part_no.lower() in query.lower():
-                return p
-            
+        logger.info(f"Searching product for query: {query}")
+        logger.info(f"Allowed sources: {allowed_sources}")
+
+        # Try part number
+        part_no = self.extract_part_number(query)
+        if part_no:
+            product = products.filter(part_no=part_no).first()
+            if product:
+                return product
+
         return None
     
-    def search_products(self, query, allowed_sources):
+    def get_by_part_number(self, part_no, allowed_sources):
         return Product.objects.filter(
-            source__in=allowed_sources,
-            description_icontains=query
-        )[:5]
+            part_no__iexact=part_no,
+            source__in=allowed_sources
+        ).first()
+
+
+    def filter_by_price(self, value, allowed_sources):
+        return Product.objects.filter(
+            price__gt=value,
+            source__in=allowed_sources
+        )[:10]
+
+
+    def filter_below_price(self, value, allowed_sources):
+        return Product.objects.filter(
+            price__lt=value,
+            source__in=allowed_sources
+        )[:10]
+
+
+    def search_multiple_products(self, query, allowed_sources):
+        products = Product.objects.filter(source__in=allowed_sources)
+
+        query = query.lower()
+        query_words = set(re.findall(r'\w+', query))
+
+        results = []
+
+        for p in products:
+            text = f"{p.part_no} {p.description}".lower()
+            text_words = set(re.findall(r'\w+', text))
+
+            score = len(query_words & text_words)
+
+            if score >= 2:
+                results.append((score, p))
+
+        results.sort(reverse=True, key=lambda x: x[0])
+
+        return [p for _, p in results[:5]]
