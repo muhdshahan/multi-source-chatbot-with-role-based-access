@@ -119,7 +119,10 @@
 <div class="container">
     <div class="header">
         <h1>Multi-Source Chatbot</h1>
-        <button class="logout-btn" onclick="logout()">Logout</button>
+        <div style="display:flex; gap:10px;">
+            <button class="logout-btn" onclick="window.location.href='/api/history/'">History</button>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
     </div>
 
     <div id="chat-box"></div>

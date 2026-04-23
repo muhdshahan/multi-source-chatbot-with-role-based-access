@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat History</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial;
+            background: #f4f7fa;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .chat {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .user {
+            color: #667eea;
+            font-weight: bold;
+        }
+        .bot {
+            color: #333;
+            margin-top: 5px;
+        }
+        .time {
+            font-size: 12px;
+            color: gray;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 15px;
+            text-decoration: none;
+            color: white;
+            background: #667eea;
+            padding: 8px 15px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="/api/ui/" class="back-btn">⬅ Back to Chat</a>
+
+    <h2>Chat History</h2>
+
+    {% for chat in chats %}
+        <div class="chat">
+            <div class="user">You: {{ chat.query }}</div>
+            <div class="bot">Bot: {{ chat.response|safe }}</div>
+            <div class="time">{{ chat.created_at }}</div>
+        </div>
+    {% empty %}
+        <p>No chat history yet.</p>
+    {% endfor %}
+</div>
+
+</body>
+</html>

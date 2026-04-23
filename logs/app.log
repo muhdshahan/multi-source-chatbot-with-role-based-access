@@ -530,3 +530,220 @@ Description: Bump & Feed Z5 For Rbc
 2026-04-23 17:51:05 | INFO | chatbot.services.chat_service | [c2fc419a] RESPONSE PREVIEW: Logistic regression is a predictive model that's similar to linear regression, but it's designed to predict binary outcomes (i.e., 0 or 1, true or false, etc.) instead of continuous variables. It's closely related to linear regression and builds on some of the same concepts.
 
 In logistic regression,
+2026-04-23 17:59:02 | INFO | django.utils.autoreload | Watching for file changes with StatReloader
+2026-04-23 17:59:13 | WARNING | django.request | Not Found: /media/frames/result_800.jpg
+2026-04-23 17:59:13 | WARNING | django.request | Not Found: /media/frames/result_900.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/120_person.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/240_person.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/360_person.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/0_backpack.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/0_person.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/480_person.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/2760_bus.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/2880_bus.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/3000_bus.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/2160_car.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/960_traffic light.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/1200_traffic light.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/1080_traffic light.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/1800_traffic light.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/1920_traffic light.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/frames/0_person.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/frames/120_person.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/frames/240_person.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/frames/360_person.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/frames/480_person.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/frame_60.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/frame_90.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/frame_510.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/frame_600.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/frame_630.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/frame_120.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/frame_150.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/frame_180.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/frame_240.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/frame_270.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/frame_300.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/frame_330.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/frames/frame_0.jpg
+2026-04-23 17:59:14 | WARNING | django.request | Not Found: /media/frames/frame_0.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/result_800.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/240_person.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/result_900.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/360_person.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/0_person.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/120_person.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/480_person.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/0_backpack.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/2760_bus.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/2880_bus.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/3000_bus.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/2160_car.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/960_traffic light.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/1080_traffic light.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/1800_traffic light.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/1200_traffic light.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/1920_traffic light.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/frames/0_person.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/frames/120_person.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/frames/360_person.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/frames/240_person.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/frames/480_person.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/frame_60.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/frame_90.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/frame_510.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/frame_600.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/frame_630.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/frame_120.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/frame_150.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/frame_180.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/frame_240.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/frame_270.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/frame_330.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/frame_300.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/frame_0.jpg
+2026-04-23 17:59:40 | WARNING | django.request | Not Found: /media/frames/frames/frame_0.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/result_800.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/result_900.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/360_person.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/0_person.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/120_person.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/240_person.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/480_person.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/2760_bus.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/0_backpack.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/3000_bus.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/2880_bus.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/960_traffic light.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/2160_car.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/1080_traffic light.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/1200_traffic light.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/1800_traffic light.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/1920_traffic light.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/frames/0_person.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/frames/120_person.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/frames/240_person.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/frames/360_person.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/frame_60.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/frame_90.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/frames/480_person.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/frame_510.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/frame_600.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/frame_630.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/frame_120.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/frame_150.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/frame_180.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/frame_270.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/frame_240.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/frame_330.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/frame_300.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/frame_0.jpg
+2026-04-23 17:59:56 | WARNING | django.request | Not Found: /media/frames/frames/frame_0.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/result_800.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/result_900.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/0_person.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/360_person.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/120_person.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/240_person.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/480_person.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/0_backpack.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/2880_bus.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/2760_bus.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/3000_bus.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/2160_car.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/960_traffic light.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/1200_traffic light.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/1080_traffic light.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/1920_traffic light.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/1800_traffic light.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/frames/0_person.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/frames/120_person.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/frames/240_person.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/frames/360_person.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/frames/480_person.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/frame_60.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/frame_90.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/frame_510.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/frame_600.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/frame_630.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/frame_120.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/frame_150.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/frame_180.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/frame_270.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/frame_240.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/frame_300.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/frame_0.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/frame_330.jpg
+2026-04-23 18:01:27 | WARNING | django.request | Not Found: /media/frames/frames/frame_0.jpg
+2026-04-23 18:02:05 | WARNING | django.request | Not Found: /media/frames/result_800.jpg
+2026-04-23 18:02:05 | WARNING | django.request | Not Found: /media/frames/0_person.jpg
+2026-04-23 18:02:05 | WARNING | django.request | Not Found: /media/frames/240_person.jpg
+2026-04-23 18:02:05 | WARNING | django.request | Not Found: /media/frames/120_person.jpg
+2026-04-23 18:02:05 | WARNING | django.request | Not Found: /media/frames/result_900.jpg
+2026-04-23 18:02:05 | WARNING | django.request | Not Found: /media/frames/360_person.jpg
+2026-04-23 18:02:05 | WARNING | django.request | Not Found: /media/frames/480_person.jpg
+2026-04-23 18:02:05 | WARNING | django.request | Not Found: /media/frames/0_backpack.jpg
+2026-04-23 18:02:05 | WARNING | django.request | Not Found: /media/frames/2880_bus.jpg
+2026-04-23 18:02:05 | WARNING | django.request | Not Found: /media/frames/2160_car.jpg
+2026-04-23 18:02:05 | WARNING | django.request | Not Found: /media/frames/3000_bus.jpg
+2026-04-23 18:02:05 | WARNING | django.request | Not Found: /media/frames/2760_bus.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/960_traffic light.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/1080_traffic light.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/1200_traffic light.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/1800_traffic light.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/1920_traffic light.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/frames/0_person.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/frames/240_person.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/frames/120_person.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/frame_60.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/frames/480_person.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/frame_600.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/frame_510.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/frame_90.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/frames/360_person.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/frame_630.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/frame_150.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/frame_120.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/frame_180.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/frame_240.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/frame_300.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/frame_330.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/frame_270.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/frame_0.jpg
+2026-04-23 18:02:06 | WARNING | django.request | Not Found: /media/frames/frames/frame_0.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/result_800.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/120_person.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/result_900.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/240_person.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/0_person.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/360_person.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/480_person.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/2760_bus.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/0_backpack.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/2880_bus.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/3000_bus.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/2160_car.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/960_traffic light.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/1080_traffic light.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/1800_traffic light.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/frames/0_person.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/1200_traffic light.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/1920_traffic light.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/frames/240_person.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/frames/120_person.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/frames/360_person.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/frames/480_person.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/frame_60.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/frame_510.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/frame_90.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/frame_600.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/frame_630.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/frame_120.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/frame_150.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/frame_180.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/frame_240.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/frame_270.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/frame_300.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/frame_330.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/frame_0.jpg
+2026-04-23 18:02:09 | WARNING | django.request | Not Found: /media/frames/frames/frame_0.jpg
